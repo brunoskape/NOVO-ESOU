@@ -67,11 +67,6 @@ namespace ESOU.TestsUI
         }
 
 
-  
-
-
-
-
 
         [TearDown]
         public void tearDown()
@@ -79,11 +74,6 @@ namespace ESOU.TestsUI
            // driver.Quit();
         }
 
-
-
     }
-
-
-
 
 }

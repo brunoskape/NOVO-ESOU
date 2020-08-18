@@ -455,6 +455,7 @@
     <Compile Include="Pages\FormaContatoPage .cs" />
     <Compile Include="Pages\CanalDeAcessoPage.cs" />
     <Compile Include="Pages\HomePage.cs" />
+    <Compile Include="Tests\TextoPadrao .cs" />
     <Compile Include="Tests\Manifestacao .cs" />
     <Compile Include="Tests\FormaContato.cs" />
     <Compile Include="Tests\CanalAcesso.cs" />

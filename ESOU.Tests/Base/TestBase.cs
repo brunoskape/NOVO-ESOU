@@ -52,8 +52,8 @@ namespace ESOU.Base
                 case WebBrowser.Chrome:
                     //driver = new ChromeDriver();
                     ChromeOptions chromeOptions = new ChromeOptions();
-                    chromeOptions.AddArguments("headless");
-                    chromeOptions.AddArguments("disable-gpu");
+                   // chromeOptions.AddArguments("headless");
+                   // chromeOptions.AddArguments("disable-gpu");
                     driver = new ChromeDriver(chromeOptions);
                     driver.Navigate().GoToUrl("https://wwwh3.tjrj.jus.br/hsegweb/faces/login.jsp");
                     driver.Manage().Window.Maximize();
@@ -96,32 +96,8 @@ namespace ESOU.Base
 
 
         }
-
-
-        public void selecionarMenuAreaManifestacao()
-        {
-            driver.FindElement(By.XPath("//*[@id='iniciodomenu']/div/ul/li[4]/a/span[1]")).Click();
-            Thread.Sleep(1000);
-            driver.FindElement(By.CssSelector("#iniciodomenu > div > ul > li.open > ul > li:nth-child(2) > a")).Click();
-
-        }
-
-        public void selecionarMenuCanalAcesso()
-        {
-            driver.FindElement(By.XPath("//*[@id='iniciodomenu']/div/ul/li[4]/a/span[1]")).Click();
-            Thread.Sleep(1000);
-            driver.FindElement(By.CssSelector("#iniciodomenu > div > ul > li.open > ul > li:nth-child(2) > a")).Click();
-
-        }
-
-        public void selecionarFormaDeContato()
-        {
-            driver.FindElement(By.XPath("//*[@id='iniciodomenu']/div/ul/li[4]/a/span[1]")).Click();
-            Thread.Sleep(1000);
-            driver.FindElement(By.CssSelector("#iniciodomenu > div > ul > li.open > ul > li:nth-child(3) > a")).Click();
-
-        }
-
+                    
+          
         
 
         public void Screenshot(IWebDriver driver, string screenshotsPasta)

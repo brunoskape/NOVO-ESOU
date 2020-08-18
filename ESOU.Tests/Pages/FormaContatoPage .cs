@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace ESOU.Pages
 {
-    class FormatoContatoPage : TestBase
+    class FormatoContatoPage
     {
         private IWebDriver driver;
         public FormatoContatoPage(IWebDriver driver)
@@ -42,12 +42,16 @@ namespace ESOU.Pages
         {
             selecionarFormaDeContato();
             //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            Thread.Sleep(1000);
-            driver.FindElement(By.XPath("//*[@id='tableTipoCanalAcesso']/thead/tr/th[1]")).Click();
+            Thread.Sleep(2000);
+            driver.FindElement(By.XPath("//*[@id='tableFormaContato']/thead/tr/th[1]")).Click();
             driver.FindElement(By.Id("btnGridEdit")).Click();
             driver.FindElement(By.Id("inputDescr")).Clear();
             driver.FindElement(By.Id("inputDescr")).SendKeys(descricao);
 
+            var combobox = driver.FindElement(By.Id("dropStatus"));
+            var selectElement = new OpenQA.Selenium.Support.UI.SelectElement(combobox);
+            selectElement.SelectByText("Ativo");
+            Thread.Sleep(1000);
             driver.FindElement(By.Id("btnAlterar")).Click();
 
             Thread.Sleep(1000);
@@ -58,8 +62,8 @@ namespace ESOU.Pages
         {
             selecionarFormaDeContato();
             //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            Thread.Sleep(1000);
-            driver.FindElement(By.XPath("//*[@id='tableTipoCanalAcesso']/thead/tr/th[1]")).Click();
+            Thread.Sleep(2000);
+            driver.FindElement(By.XPath("//*[@id='tableFormaContato']/thead/tr/th[1]")).Click();
             driver.FindElement(By.Id("btnGridDelete")).Click();
             Thread.Sleep(1000);
           
@@ -69,6 +73,13 @@ namespace ESOU.Pages
 
         }
 
+        public void selecionarFormaDeContato()
+        {
+            driver.FindElement(By.XPath("//*[@id='iniciodomenu']/div/ul/li[4]/a/span[1]")).Click();
+            Thread.Sleep(1000);
+            driver.FindElement(By.CssSelector("#iniciodomenu > div > ul > li.open > ul > li:nth-child(3) > a")).Click();
+
+        }
 
 
     }

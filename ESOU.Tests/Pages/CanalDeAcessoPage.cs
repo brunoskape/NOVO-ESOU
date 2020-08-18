@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace ESOU.Pages
 {
-    class CanalDeAcessoPage : TestBase
+    class CanalDeAcessoPage  
     {
         private IWebDriver driver;
         public CanalDeAcessoPage(IWebDriver driver)
@@ -81,15 +81,15 @@ namespace ESOU.Pages
 
 
 
-
-
-
-
-
-
         }
 
+        public void selecionarMenuCanalAcesso()
+        {
+            driver.FindElement(By.XPath("//*[@id='iniciodomenu']/div/ul/li[4]/a/span[1]")).Click();
+            Thread.Sleep(1000);
+            driver.FindElement(By.CssSelector("#iniciodomenu > div > ul > li.open > ul > li:nth-child(2) > a")).Click();
 
+        }
 
     }
 }

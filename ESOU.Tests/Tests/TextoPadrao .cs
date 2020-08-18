@@ -12,7 +12,7 @@ using System.Linq;
 namespace ESOU.TestsUI
 
 {
-    class FormaContato : TestBase
+    class TextoPadrao : TestBase
     {
         IWebDriver driver;
 
@@ -30,11 +30,11 @@ namespace ESOU.TestsUI
         
             
             [Test, Order(1)]
-        public void incluirFormaDeContato()
+        public void incluirManifestacao()
         {
 
-            FormatoContatoPage FormadeContato = new FormatoContatoPage(driver);
-            FormadeContato.incluirFormaDeContato("teste selenium Forma de Contato");
+            ManifestacaoPage manifestacao = new ManifestacaoPage(driver);
+            manifestacao.alterarManifestacao("teste selenium Manif");
             
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
             Assert.AreEqual("   Cadastrado com sucesso.", textoValidacao);
@@ -44,11 +44,11 @@ namespace ESOU.TestsUI
 
 
         [Test, Order(2)]
-        public void alterarFormaDeContato()
+        public void alterarManifestacao()
         {
 
-            FormatoContatoPage FormadeContato = new FormatoContatoPage(driver);
-            FormadeContato.alterarFormaDeContato("teste selenium alteracao");
+            ManifestacaoPage manifestacao = new ManifestacaoPage(driver);
+            manifestacao.alterarManifestacao("teste selenium alt");
 
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
             Assert.AreEqual("   Alterado com sucesso.", textoValidacao);
@@ -58,11 +58,11 @@ namespace ESOU.TestsUI
 
 
         [Test, Order(3)]
-        public void excluirFormaDeContato()
+        public void excluirManifestacao()
         {
 
-            FormatoContatoPage FormadeContato = new FormatoContatoPage(driver);
-            FormadeContato.excluirFormaDeContato();
+            ManifestacaoPage manifestacao = new ManifestacaoPage(driver);
+            manifestacao.excluirManifestacao();
 
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
             Assert.AreEqual("   Excluído com sucesso.", textoValidacao);
@@ -70,15 +70,18 @@ namespace ESOU.TestsUI
         }
 
 
+
         [TearDown]
         public void tearDown()
         {
-            //driver.Quit();
+           // driver.Quit();
         }
 
 
 
     }
+
+
 
 
 }
