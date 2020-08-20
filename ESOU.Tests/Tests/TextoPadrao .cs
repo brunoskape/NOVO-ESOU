@@ -30,11 +30,11 @@ namespace ESOU.TestsUI
         
             
             [Test, Order(1)]
-        public void incluirManifestacao()
+        public void incluirTextoPadrao()
         {
 
-            ManifestacaoPage manifestacao = new ManifestacaoPage(driver);
-            manifestacao.alterarManifestacao("teste selenium Manif");
+            TextoPadraoPage textoPadrao = new TextoPadraoPage(driver);
+            textoPadrao.incluirTextoPadrao("testeSelenium","BRU","teste descrição");
             
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
             Assert.AreEqual("   Cadastrado com sucesso.", textoValidacao);
@@ -44,11 +44,11 @@ namespace ESOU.TestsUI
 
 
         [Test, Order(2)]
-        public void alterarManifestacao()
+        public void alterarTextoPadrao()
         {
 
-            ManifestacaoPage manifestacao = new ManifestacaoPage(driver);
-            manifestacao.alterarManifestacao("teste selenium alt");
+            TextoPadraoPage textoPadrao = new TextoPadraoPage(driver);
+            textoPadrao.alterarTextoPadrao("alt");
 
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
             Assert.AreEqual("   Alterado com sucesso.", textoValidacao);
@@ -58,11 +58,11 @@ namespace ESOU.TestsUI
 
 
         [Test, Order(3)]
-        public void excluirManifestacao()
+        public void excluirTextoPadrao()
         {
 
-            ManifestacaoPage manifestacao = new ManifestacaoPage(driver);
-            manifestacao.excluirManifestacao();
+            TextoPadraoPage textoPadrao = new TextoPadraoPage(driver);
+            textoPadrao.excluirTextoPadrao();
 
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
             Assert.AreEqual("   Excluído com sucesso.", textoValidacao);

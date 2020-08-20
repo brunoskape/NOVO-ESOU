@@ -451,6 +451,7 @@
   <ItemGroup>
     <Compile Include="Base\SelectElement.cs" />
     <Compile Include="Base\TestBase.cs" />
+    <Compile Include="Pages\TextoPadraoPage .cs" />
     <Compile Include="Pages\ManifestacaoPage.cs" />
     <Compile Include="Pages\FormaContatoPage .cs" />
     <Compile Include="Pages\CanalDeAcessoPage.cs" />
