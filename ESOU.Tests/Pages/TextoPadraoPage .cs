@@ -57,12 +57,12 @@ namespace ESOU.Pages
         {
             selecionarFormaDeContato();
             //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            Thread.Sleep(2000);
+            Thread.Sleep(3000);
             driver.FindElement(By.XPath("//*[@id='tableTipoTextoPadrao']/thead/tr/th[1]")).Click();
             driver.FindElement(By.Id("btnGridEdit")).Click();
 
-            driver.FindElement(By.Id("inputTitulo")).SendKeys(Keys.Control + "a");
-            driver.FindElement(By.Id("inputTitulo")).SendKeys(Keys.Delete);
+            driver.FindElement(By.Id("inputTitulo")).SendKeys(Keys.Backspace);
+            
             Thread.Sleep(1000);
             driver.FindElement(By.Id("inputTitulo")).SendKeys(titulo);
 
@@ -79,13 +79,27 @@ namespace ESOU.Pages
         public void excluirTextoPadrao()
         {
             selecionarFormaDeContato();
-            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+           
             Thread.Sleep(2000);
-            driver.FindElement(By.XPath("//*[@id='tableFormaContato']/thead/tr/th[1]")).Click();
+            driver.FindElement(By.XPath("//*[@id='tableTipoTextoPadrao']/thead/tr/th[1]")).Click();
             driver.FindElement(By.Id("btnGridDelete")).Click();
             Thread.Sleep(1000);
           
             driver.FindElement(By.Id("btnConfirmar")).Click();
+            Thread.Sleep(1000);
+
+
+        }
+
+
+        public void consultarTextoPadrao(string titulo)
+        {
+            selecionarFormaDeContato();
+
+            driver.FindElement(By.Id("inputTitulo")).SendKeys(titulo);
+            driver.FindElement(By.Id("btnBuscar")).Click();
+
+
             Thread.Sleep(1000);
 
 

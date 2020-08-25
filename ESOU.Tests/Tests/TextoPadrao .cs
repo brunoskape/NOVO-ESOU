@@ -70,6 +70,19 @@ namespace ESOU.TestsUI
         }
 
 
+        [Test, Order(4)]
+        public void consultarTextoPadrao()
+        {
+
+            TextoPadraoPage textoPadrao = new TextoPadraoPage(driver);
+            textoPadrao.consultarTextoPadrao("teste");
+
+            string textoValidacao = driver.FindElement(By.XPath("//*[@id='tableTipoTextoPadrao']/tbody/tr[1]/td[2]")).Text;
+            Assert.IsTrue(textoValidacao.Contains("TESTE"));
+
+        }
+
+
 
         [TearDown]
         public void tearDown()
