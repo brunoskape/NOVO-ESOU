@@ -451,13 +451,19 @@
   <ItemGroup>
     <Compile Include="Base\SelectElement.cs" />
     <Compile Include="Base\TestBase.cs" />
-    <Compile Include="Pages\TextoPadraoPage .cs" />
+    <Compile Include="Pages\ItemTipoManifestacaoPage.cs" />
+    <Compile Include="Pages\TipoManifestantePage.cs" />
+    <Compile Include="Pages\TipoManifestacaoPage.cs" />
+    <Compile Include="Pages\TextoPadraoPage.cs" />
     <Compile Include="Pages\ManifestacaoPage.cs" />
-    <Compile Include="Pages\FormaContatoPage .cs" />
+    <Compile Include="Pages\FormaContatoPage.cs" />
     <Compile Include="Pages\CanalDeAcessoPage.cs" />
     <Compile Include="Pages\HomePage.cs" />
-    <Compile Include="Tests\TextoPadrao .cs" />
-    <Compile Include="Tests\Manifestacao .cs" />
+    <Compile Include="Tests\ItemTipoManifestacao.cs" />
+    <Compile Include="Tests\TipoManifestante.cs" />
+    <Compile Include="Tests\TipoManifestacao.cs" />
+    <Compile Include="Tests\TextoPadrao.cs" />
+    <Compile Include="Tests\Manifestacao.cs" />
     <Compile Include="Tests\FormaContato.cs" />
     <Compile Include="Tests\CanalAcesso.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

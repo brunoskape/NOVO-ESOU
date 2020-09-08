@@ -21,7 +21,7 @@ namespace ESOU.TestsUI
         {
             Inicializar(WebBrowser.Chrome);
             driver = GetDriver();
-            Logar("brunobispo", "875664");
+            Logar("brunobispo", "260769");
             HomePage homePage = new HomePage(driver);
             homePage.selecionarSistema();
             Thread.Sleep(1000);

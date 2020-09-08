@@ -12,7 +12,7 @@ using System.Linq;
 namespace ESOU.TestsUI
 
 {
-    class TextoPadrao : TestBase
+    class TipoManifestante : TestBase
     {
         IWebDriver driver;
 
@@ -21,7 +21,7 @@ namespace ESOU.TestsUI
         {
             Inicializar(WebBrowser.Chrome);
             driver = GetDriver();
-            Logar("brunobispo", "875664");
+            Logar("brunobispo", "260769");
             HomePage homePage = new HomePage(driver);
             homePage.selecionarSistema();
             Thread.Sleep(1000);
@@ -30,11 +30,11 @@ namespace ESOU.TestsUI
         
             
             [Test, Order(1)]
-        public void incluirTextoPadrao()
+        public void incluirTipoManifestante()
         {
 
-            TextoPadraoPage textoPadrao = new TextoPadraoPage(driver);
-            textoPadrao.incluirTextoPadrao("testeSelenium","BRU","teste descrição");
+            TipoManifestantePage tipoManifestante = new TipoManifestantePage(driver);
+            tipoManifestante.incluirTipoManifestante("teste Tipo Manifestante");
             
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
             Assert.AreEqual("   Cadastrado com sucesso.", textoValidacao);
@@ -44,11 +44,11 @@ namespace ESOU.TestsUI
 
 
         [Test, Order(2)]
-        public void alterarTextoPadrao()
+        public void alterarTipoManifestante()
         {
-            //verificar
-            TextoPadraoPage textoPadrao = new TextoPadraoPage(driver);
-            textoPadrao.alterarTextoPadrao("alt");
+
+            TipoManifestantePage tipoManifestante = new TipoManifestantePage(driver);
+            tipoManifestante.alterarTipoManifestante("alt");
 
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
             Assert.AreEqual("   Alterado com sucesso.", textoValidacao);
@@ -58,11 +58,11 @@ namespace ESOU.TestsUI
 
 
         [Test, Order(3)]
-        public void excluirTextoPadrao()
+        public void excluirTipoManifestante()
         {
 
-            TextoPadraoPage textoPadrao = new TextoPadraoPage(driver);
-            textoPadrao.excluirTextoPadrao();
+            TipoManifestantePage tipoManifestante = new TipoManifestantePage(driver);
+            tipoManifestante.excluirTipoManifestante();
 
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
             Assert.AreEqual("   Excluído com sucesso.", textoValidacao);
@@ -71,23 +71,22 @@ namespace ESOU.TestsUI
 
 
         [Test, Order(4)]
-        public void consultarTextoPadrao()
+        public void consultarTipoManifestante()
         {
 
-            TextoPadraoPage textoPadrao = new TextoPadraoPage(driver);
-            textoPadrao.consultarTextoPadrao("teste");
+            TipoManifestantePage tipoManifestante = new TipoManifestantePage(driver);
+            tipoManifestante.consultarTipoManifestante("Advogado");
 
-            string textoValidacao = driver.FindElement(By.XPath("//*[@id='tableTipoTextoPadrao']/tbody/tr[1]/td[2]")).Text;
-            Assert.IsTrue(textoValidacao.Contains("TESTE"));
+            string textoValidacao = driver.FindElement(By.XPath("//*[@id='tableTipoManifestante']/tbody/tr[1]/td[2]")).Text;
+            Assert.IsTrue(textoValidacao.Contains("Advogado"));
 
         }
 
-
-
+             
         [TearDown]
         public void tearDown()
         {
-           // driver.Quit();
+            driver.Quit();
         }
 
 
