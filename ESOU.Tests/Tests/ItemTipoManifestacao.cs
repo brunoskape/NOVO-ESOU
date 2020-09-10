@@ -34,7 +34,7 @@ namespace ESOU.TestsUI
         {
 
             ItemTipoManifestacaoPage itemTipoManifestacao = new ItemTipoManifestacaoPage(driver);
-            itemTipoManifestacao.incluirTipoManifestacao("testeSelenium");
+            itemTipoManifestacao.incluirItemTipoManifestacao("testeSelenium","sigla");
             
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
             Assert.AreEqual("   Cadastrado com sucesso.", textoValidacao);
@@ -44,11 +44,11 @@ namespace ESOU.TestsUI
 
 
         [Test, Order(2)]
-        public void alterarTipoManifestacao()
+        public void alterarItemTipoManifestacao()
         {
-            
-            TipoManifestacaoPage tipoManifestacao = new TipoManifestacaoPage(driver);
-            tipoManifestacao.alterarTipoManifestacao("alt");
+
+            ItemTipoManifestacaoPage itemTipoManifestacao = new ItemTipoManifestacaoPage(driver);
+            itemTipoManifestacao.alterarItemTipoManifestacao("alt");
 
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
             Assert.AreEqual("   Alterado com sucesso.", textoValidacao);
@@ -58,30 +58,16 @@ namespace ESOU.TestsUI
 
 
         [Test, Order(3)]
-        public void excluirTipoManifestacao()
+        public void excluirItemTipoManifestacao()
         {
 
-            TipoManifestacaoPage tipoManifestacao = new TipoManifestacaoPage(driver);
-            tipoManifestacao.excluirTipoManifestacao();
+            ItemTipoManifestacaoPage itemTipoManifestacao = new ItemTipoManifestacaoPage(driver);
+            itemTipoManifestacao.excluirItemTipoManifestacao();
 
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
             Assert.AreEqual("   Excluído com sucesso.", textoValidacao);
 
         }
-
-
-        [Test, Order(4)]
-        public void consultarTipoManifestacao()
-        {
-
-            TipoManifestacaoPage tipoManifestacao = new TipoManifestacaoPage(driver);
-            tipoManifestacao.consultarTipoManifestacao("Duvidas");
-
-            string textoValidacao = driver.FindElement(By.XPath("//*[@id='tableTipoManifestacao']/tbody/tr[1]/td[2]")).Text;
-            Assert.IsTrue(textoValidacao.Contains("Duvidas"));
-
-        }
-
 
 
         [TearDown]

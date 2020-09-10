@@ -17,36 +17,27 @@ namespace ESOU.Pages
         }
 
 
-        public void incluirTipoManifestacao(string descricao)
+        public void incluirItemTipoManifestacao(string nome, string sigla)
         {
             //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
             selecionarTipoManifestante();
 
-            driver.FindElement(By.Id("btnIncluir")).Click();
+            driver.FindElement(By.XPath("//*[@id='tableTipoManifestacao']/thead/tr/th[1]")).Click();
             Thread.Sleep(3000);
+            driver.FindElement(By.Id("btnGridItens")).Click();
+            Thread.Sleep(1000);
 
-            driver.FindElement(By.Id("inputDescr")).SendKeys(descricao);
+            driver.FindElement(By.Id("btnIncluir")).Click();
 
-
-            var comboboxTipoManifestacao = driver.FindElement(By.Id("dropManifestacao"));
-            var selectElementTipoManifestacao = new OpenQA.Selenium.Support.UI.SelectElement(comboboxTipoManifestacao);
-            selectElementTipoManifestacao.SelectByText("Sim");
-
-
-            var comboboxOpniao = driver.FindElement(By.Id("dropOpiniao"));
-            var selectElementOpniao = new OpenQA.Selenium.Support.UI.SelectElement(comboboxOpniao);
-            selectElementOpniao.SelectByText("Sim");
-
+            driver.FindElement(By.Id("inputNome")).SendKeys(nome);
 
             var comboboxStatus = driver.FindElement(By.Id("dropStatus"));
             var selectElementStatus = new OpenQA.Selenium.Support.UI.SelectElement(comboboxStatus);
             selectElementStatus.SelectByText("Ativo");
 
-            //Thread.Sleep(2000);
-            //var comboboxSatisfacao = driver.FindElement(By.Id("dropSatisfacao"));
-            //var selectElementSatisfacao = new OpenQA.Selenium.Support.UI.SelectElement(comboboxTipoManifestacao);
-            //selectElementSatisfacao.SelectByText("Sim");
+            driver.FindElement(By.Id("inputSigla")).SendKeys(sigla);
+
 
 
 
@@ -57,17 +48,19 @@ namespace ESOU.Pages
         }
 
 
-        public void alterarTipoManifestacao(string titulo)
+        public void alterarItemTipoManifestacao(string titulo)
         {
             selecionarTipoManifestante();
-            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             Thread.Sleep(3000);
             driver.FindElement(By.XPath("//*[@id='tableTipoManifestacao']/thead/tr/th[1]")).Click();
+            driver.FindElement(By.Id("btnGridItens")).Click();
+            Thread.Sleep(1000);
             driver.FindElement(By.Id("btnGridEdit")).Click();
 
 
             var combobox = driver.FindElement(By.Id("dropStatus"));
             var selectElement = new OpenQA.Selenium.Support.UI.SelectElement(combobox);
+            Thread.Sleep(1000);
             selectElement.SelectByText("Inativo");
             Thread.Sleep(1000);
             driver.FindElement(By.Id("btnAlterar")).Click();
@@ -76,12 +69,14 @@ namespace ESOU.Pages
 
         }
 
-        public void excluirTipoManifestacao()
+        public void excluirItemTipoManifestacao()
         {
             selecionarTipoManifestante();
            
             Thread.Sleep(2000);
             driver.FindElement(By.XPath("//*[@id='tableTipoManifestacao']/thead/tr/th[1]")).Click();
+            driver.FindElement(By.Id("btnGridItens")).Click();
+            Thread.Sleep(1000);
             driver.FindElement(By.Id("btnGridExcluir")).Click();
             Thread.Sleep(1000);
           
@@ -92,7 +87,7 @@ namespace ESOU.Pages
         }
 
 
-        public void consultarTipoManifestacao(string titulo)
+        public void consultarItemTipoManifestacao(string titulo)
         {
             selecionarTipoManifestante();
 
