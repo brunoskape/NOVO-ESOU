@@ -69,11 +69,22 @@ namespace ESOU.TestsUI
 
         }
 
+        [Test, Order(4)]
+        public void excluirItemTipoManifestacaoVinculado()
+        {
+
+            ItemTipoManifestacaoPage itemTipoManifestacao = new ItemTipoManifestacaoPage(driver);
+            itemTipoManifestacao.excluirItemTipoManifestacaoVinculado();
+            Assert.IsTrue(driver.FindElement(By.Id("btnGridExcluir")).Enabled);
+
+
+        }
+
 
         [TearDown]
         public void tearDown()
         {
-         //   driver.Quit();
+          //  driver.Quit();
         }
 
 

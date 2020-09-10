@@ -4,6 +4,7 @@ using ESOU.Base;
 using System;
 using System.Threading;
 using System.Linq;
+using NUnit.Framework;
 
 namespace ESOU.Pages
 {
@@ -86,6 +87,21 @@ namespace ESOU.Pages
 
         }
 
+        public void excluirItemTipoManifestacaoVinculado()
+        {
+            selecionarTipoManifestante();
+
+            Thread.Sleep(1000);
+            //driver.FindElement(By.XPath("//*[@id='tableTipoManifestacao']/thead/tr/th[1]")).Click();
+            
+            var button = driver.FindElement(By.Id("btnGridExcluir")).Enabled;
+
+            
+            
+  
+        }
+
+
 
         public void consultarItemTipoManifestacao(string titulo)
         {
@@ -99,6 +115,9 @@ namespace ESOU.Pages
 
 
         }
+
+
+
 
         public void selecionarTipoManifestante()
         {
