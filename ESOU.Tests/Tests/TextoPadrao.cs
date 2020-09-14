@@ -1,11 +1,7 @@
 ﻿using NUnit.Framework;
-using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using ESOU.Base;
 using ESOU.Pages;
-using System;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 using System.Threading;
 using System.Linq;
 
@@ -34,7 +30,7 @@ namespace ESOU.TestsUI
         {
 
             TextoPadraoPage textoPadrao = new TextoPadraoPage(driver);
-            textoPadrao.incluirTextoPadrao("testeSelenium","BRU","teste descrição");
+            textoPadrao.incluirTextoPadrao("testeSelenium","BRO","teste dpriaxção");
             
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
             Assert.AreEqual("   Cadastrado com sucesso.", textoValidacao);

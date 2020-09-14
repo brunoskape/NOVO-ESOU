@@ -109,7 +109,7 @@ namespace ESOU.Pages
         {
             driver.FindElement(By.XPath("//*[@id='iniciodomenu']/div/ul/li[4]/a/span[1]")).Click();
             Thread.Sleep(1000);
-            driver.FindElement(By.CssSelector("#iniciodomenu > div > ul > li.open > ul > li:nth-child(4) > a")).Click();
+            driver.FindElement(By.CssSelector("#iniciodomenu > div > ul > li.open > ul > li:nth-child(6) > a")).Click();
 
         }
 

@@ -42,7 +42,7 @@ namespace ESOU.Pages
         {
             selecionarFormaDeContato();
             //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            Thread.Sleep(2000);
+            Thread.Sleep(3000);
             driver.FindElement(By.XPath("//*[@id='tableFormaContato']/thead/tr/th[1]")).Click();
             driver.FindElement(By.Id("btnGridEdit")).Click();
             driver.FindElement(By.Id("inputDescr")).Clear();

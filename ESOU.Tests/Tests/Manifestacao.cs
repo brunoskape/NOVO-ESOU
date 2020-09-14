@@ -34,7 +34,7 @@ namespace ESOU.TestsUI
         {
 
             ManifestacaoPage manifestacao = new ManifestacaoPage(driver);
-            manifestacao.alterarManifestacao("teste selenium Manif");
+            manifestacao.incluirManifestacao("teste selenium Manif");
             
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
             Assert.AreEqual("   Cadastrado com sucesso.", textoValidacao);

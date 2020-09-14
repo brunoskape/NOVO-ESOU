@@ -1,7 +1,4 @@
 ﻿using System;
-using OpenQA.Selenium.Interactions;
-using OpenQA.Selenium.Support.UI;
-using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
@@ -9,8 +6,7 @@ using OpenQA.Selenium.IE;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 using System.IO;
-using System.Threading;
-using NUnit.Framework;
+
 
 namespace ESOU.Base
 {
@@ -52,8 +48,8 @@ namespace ESOU.Base
                 case WebBrowser.Chrome:
                     //driver = new ChromeDriver();
                     ChromeOptions chromeOptions = new ChromeOptions();
-                   // chromeOptions.AddArguments("headless");
-                   // chromeOptions.AddArguments("disable-gpu");
+                    //chromeOptions.AddArguments("headless");
+                    //chromeOptions.AddArguments("disable-gpu");
                     driver = new ChromeDriver(chromeOptions);
                     driver.Navigate().GoToUrl("https://wwwh3.tjrj.jus.br/hsegweb/faces/login.jsp");
                     driver.Manage().Window.Maximize();
