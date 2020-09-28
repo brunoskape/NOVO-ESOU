@@ -451,6 +451,8 @@
   <ItemGroup>
     <Compile Include="Base\SelectElement.cs" />
     <Compile Include="Base\TestBase.cs" />
+    <Compile Include="Pages\RespostaPage.cs" />
+    <Compile Include="Pages\PerguntaPage.cs" />
     <Compile Include="Pages\ItemTipoManifestacaoPage.cs" />
     <Compile Include="Pages\TipoManifestantePage.cs" />
     <Compile Include="Pages\TipoManifestacaoPage.cs" />
@@ -459,6 +461,8 @@
     <Compile Include="Pages\FormaContatoPage.cs" />
     <Compile Include="Pages\CanalDeAcessoPage.cs" />
     <Compile Include="Pages\HomePage.cs" />
+    <Compile Include="Tests\Pergunta.cs" />
+    <Compile Include="Tests\Resposta.cs" />
     <Compile Include="Tests\ItemTipoManifestacao.cs" />
     <Compile Include="Tests\TipoManifestante.cs" />
     <Compile Include="Tests\TipoManifestacao.cs" />

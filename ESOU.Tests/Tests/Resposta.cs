@@ -1,14 +1,18 @@
 ﻿using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using ESOU.Base;
 using ESOU.Pages;
+using System;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System.Threading;
 using System.Linq;
 
 namespace ESOU.TestsUI
 
 {
-    class Acesso : TestBase
+    class Resposta : TestBase
     {
         IWebDriver driver;
 
@@ -22,15 +26,16 @@ namespace ESOU.TestsUI
             homePage.selecionarSistema();
             Thread.Sleep(1000);
             driver.SwitchTo().Window(driver.WindowHandles.Last());
+
         }
         
             
             [Test, Order(1)]
-        public void incluirCanalAcesso()
+        public void incluirResposta()
         {
 
-            CanalDeAcessoPage canalDeAcesso = new CanalDeAcessoPage(driver);
-            canalDeAcesso.incluirCanalAcesso("teste selenium");
+            RespostaPage resposta = new RespostaPage(driver);
+            resposta.incluirResposta("teste selenium");
             
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
             Assert.AreEqual("   Cadastrado com sucesso.", textoValidacao);
@@ -38,11 +43,11 @@ namespace ESOU.TestsUI
         }
 
         [Test, Order(2)]
-        public void alterarCanalAcesso()
+        public void alterarResposta()
         {
 
-            CanalDeAcessoPage canalDeAcesso = new CanalDeAcessoPage(driver);
-            canalDeAcesso.alterarCanalAcesso("teste selenium alteracao");
+            RespostaPage resposta = new RespostaPage(driver);
+            resposta.alterarResposta("teste selenium alteracao");
 
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
             Assert.AreEqual("   Alterado com sucesso.", textoValidacao);
@@ -51,14 +56,27 @@ namespace ESOU.TestsUI
 
 
         [Test, Order(3)]
-        public void excluirCanalAcesso()
+        public void excluirResposta()
         {
 
-            CanalDeAcessoPage canalDeAcesso = new CanalDeAcessoPage(driver);
-            canalDeAcesso.excluirCanalAcesso();
+            RespostaPage resposta = new RespostaPage(driver);
+            resposta.excluirResposta();
 
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
-            Assert.AreEqual("   Excluído com sucesso.", textoValidacao);
+            Assert.AreEqual("   Excluída com sucesso.", textoValidacao);
+
+        }
+
+
+        [Test, Order(4)]
+        public void consultarResposta()
+        {
+
+            RespostaPage resposta = new RespostaPage(driver);
+            resposta.consultarResposta("Sim");
+
+            string textoValidacao = driver.FindElement(By.XPath("//*[@id='tableTipoResposta']/tbody/tr[1]/td[2]")).Text;
+            Assert.IsTrue(textoValidacao.Contains("sim"));
 
         }
 

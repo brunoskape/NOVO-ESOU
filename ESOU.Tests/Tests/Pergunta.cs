@@ -1,14 +1,18 @@
 ﻿using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using ESOU.Base;
 using ESOU.Pages;
+using System;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System.Threading;
 using System.Linq;
 
 namespace ESOU.TestsUI
 
 {
-    class Acesso : TestBase
+    class Pergunta : TestBase
     {
         IWebDriver driver;
 
@@ -26,11 +30,11 @@ namespace ESOU.TestsUI
         
             
             [Test, Order(1)]
-        public void incluirCanalAcesso()
+        public void incluirPergunta()
         {
 
-            CanalDeAcessoPage canalDeAcesso = new CanalDeAcessoPage(driver);
-            canalDeAcesso.incluirCanalAcesso("teste selenium");
+            PerguntaPage pergunta = new PerguntaPage(driver);
+            pergunta.incluirPergunta("teste selenium");
             
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
             Assert.AreEqual("   Cadastrado com sucesso.", textoValidacao);
@@ -38,7 +42,7 @@ namespace ESOU.TestsUI
         }
 
         [Test, Order(2)]
-        public void alterarCanalAcesso()
+        public void alterarPergunta()
         {
 
             CanalDeAcessoPage canalDeAcesso = new CanalDeAcessoPage(driver);
@@ -51,7 +55,7 @@ namespace ESOU.TestsUI
 
 
         [Test, Order(3)]
-        public void excluirCanalAcesso()
+        public void excluirPergunta()
         {
 
             CanalDeAcessoPage canalDeAcesso = new CanalDeAcessoPage(driver);
