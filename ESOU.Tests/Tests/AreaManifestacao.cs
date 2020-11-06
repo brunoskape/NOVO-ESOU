@@ -12,7 +12,7 @@ using System.Linq;
 namespace ESOU.TestsUI
 
 {
-    class Pergunta : TestBase
+    class AreaManifestacao : TestBase
     {
         IWebDriver driver;
 
@@ -30,23 +30,25 @@ namespace ESOU.TestsUI
         
             
             [Test, Order(1)]
-        public void incluirPergunta()
+        public void incluirManifestacao()
         {
 
-            PerguntaPage pergunta = new PerguntaPage(driver);
-            pergunta.incluirPergunta("teste selenium");
+            AreaManifestacaoPage areaManifestacao = new AreaManifestacaoPage(driver);
+            areaManifestacao.incluirAreaManifestacao("teste selenium Manif");
             
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
             Assert.AreEqual("   Cadastrado com sucesso.", textoValidacao);
          
         }
 
+
+
         [Test, Order(2)]
-        public void alterarPergunta()
+        public void alterarManifestacao()
         {
 
-            PerguntaPage pergunta = new PerguntaPage(driver);
-            pergunta.alterarPergunta("teste selenium alteracao");
+            AreaManifestacaoPage areaManifestacao = new AreaManifestacaoPage(driver);
+            areaManifestacao.alterarAreaManifestacao("teste selenium alt");
 
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
             Assert.AreEqual("   Alterado com sucesso.", textoValidacao);
@@ -54,32 +56,19 @@ namespace ESOU.TestsUI
         }
 
 
+
         [Test, Order(3)]
-        public void excluirPergunta()
+        public void excluirManifestacao()
         {
 
-            PerguntaPage pergunta = new PerguntaPage(driver);
-            pergunta.excluirPergunta();
+            AreaManifestacaoPage areaManifestacao = new AreaManifestacaoPage(driver);
+            areaManifestacao.excluirAreaManifestacao();
 
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
-            Assert.AreEqual("   Excluída com sucesso.", textoValidacao);
+            Assert.AreEqual("   Excluído com sucesso.", textoValidacao);
 
         }
 
-
-
-        [Test, Order(4)]
-        public void consultarPergunta()
-        {
-        
-
-            PerguntaPage pergunta = new PerguntaPage(driver);
-            pergunta.consultarPergunta("Sim");
-
-            string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
-            Assert.IsTrue(textoValidacao.Contains("sim"));
-
-        }
 
 
         [TearDown]
@@ -88,6 +77,11 @@ namespace ESOU.TestsUI
             driver.Quit();
         }
 
+
+
     }
+
+
+
 
 }

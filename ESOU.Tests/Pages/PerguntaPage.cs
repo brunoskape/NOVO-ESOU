@@ -16,15 +16,14 @@ namespace ESOU.Pages
 
         public void incluirPergunta(string descricao)
         {
-            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-
-            selecionarMenuPergunta();
-           
             
 
-            driver.FindElement(By.Id("btnIncluir")).Click();
+            selecionarMenuPergunta();
 
-            driver.FindElement(By.Id("inputDescr")).SendKeys(descricao);
+
+           
+            driver.FindElement(By.Id("btnIncluir")).Click();
+            driver.FindElement(By.Id("inputDescrTipoPergunta")).SendKeys(descricao);
 
             var combobox = driver.FindElement(By.Id("dropStatus"));
             var selectElement = new OpenQA.Selenium.Support.UI.SelectElement(combobox);
@@ -42,10 +41,10 @@ namespace ESOU.Pages
             selecionarMenuPergunta();
             //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             Thread.Sleep(1000);
-            driver.FindElement(By.XPath("//*[@id='tableTipoCanalAcesso']/thead/tr/th[1]")).Click();
+            driver.FindElement(By.XPath("//*[@id='tableTipoPergunta']/thead/tr/th[1]")).Click();
             driver.FindElement(By.Id("btnGridEdit")).Click();
-            driver.FindElement(By.Id("inputDescr")).Clear();
-            driver.FindElement(By.Id("inputDescr")).SendKeys(descricao);
+            driver.FindElement(By.Id("inputDescrTipoPergunta")).Clear();
+            driver.FindElement(By.Id("inputDescrTipoPergunta")).SendKeys(descricao);
 
             driver.FindElement(By.Id("btnAlterar")).Click();
 
@@ -60,22 +59,34 @@ namespace ESOU.Pages
             selecionarMenuPergunta();
             //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             Thread.Sleep(1000);
-            driver.FindElement(By.XPath("//*[@id='tableTipoCanalAcesso']/thead/tr/th[1]")).Click();
-            driver.FindElement(By.Id("btnGridDelete")).Click();
+            driver.FindElement(By.XPath("//*[@id='tableTipoPergunta']/thead/tr/th[1]")).Click();
+            driver.FindElement(By.Id("btnGridExcluir")).Click();
             Thread.Sleep(1000);
           
             driver.FindElement(By.Id("btnConfirmar")).Click();
             Thread.Sleep(1000);
 
+        }
 
+        public void consultarPergunta(string titulo)
+        {
+            selecionarMenuPergunta();
+
+            driver.FindElement(By.Id("inputDescrTipoPergunta")).SendKeys(titulo);
+            driver.FindElement(By.Id("btnBuscar")).Click();
+
+            Thread.Sleep(1000);
 
         }
+
+
+
 
         public void selecionarMenuPergunta()
         {
             driver.FindElement(By.XPath("//*[@id='iniciodomenu']/div/ul/li[4]/a/span[1]")).Click();
             Thread.Sleep(1000);
-            driver.FindElement(By.CssSelector("#iniciodomenu > div > ul > li.open > ul > li:nth-child(2) > a")).Click();
+            driver.FindElement(By.CssSelector("#iniciodomenu > div > ul > li.open > ul > li:nth-child(4) > a")).Click();
 
         }
 

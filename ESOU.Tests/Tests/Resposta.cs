@@ -80,12 +80,25 @@ namespace ESOU.TestsUI
 
         }
 
+        [Test, Order(5)]
+        public void vincularRespostaAPergunta()
+        {
+
+            RespostaPage resposta = new RespostaPage(driver);
+            resposta.vincularResposta();
+
+            string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div/text()")).Text;
+            Assert.IsTrue(textoValidacao.Contains("   Resposta vinculada com sucesso"));
+
+        }
+
+
 
 
         [TearDown]
         public void tearDown()
         {
-            driver.Quit();
+         //   driver.Quit();
         }
 
     }

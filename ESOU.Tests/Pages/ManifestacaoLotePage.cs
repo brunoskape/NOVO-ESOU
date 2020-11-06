@@ -7,17 +7,17 @@ using System.Linq;
 
 namespace ESOU.Pages
 {
-    class ManifestacaoPage
+    class ManifestacaoLotePage
     {
         private IWebDriver driver;
-        public ManifestacaoPage(IWebDriver driver)
+        public ManifestacaoLotePage(IWebDriver driver)
         {
             this.driver = driver;
 
         }
 
 
-        public void incluirManifestacao()
+        public void incluirManifestacaoLote()
 
         {
 

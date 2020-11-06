@@ -7,19 +7,19 @@ using System.Linq;
 
 namespace ESOU.Pages
 {
-    class TipoManifestacaoPage
+    class TipoAndamentoPage
     {
         private IWebDriver driver;
-        public TipoManifestacaoPage(IWebDriver driver)
+        public TipoAndamentoPage(IWebDriver driver)
         {
             this.driver = driver;
 
         }
 
 
-        public void incluirTipoManifestacao(string descricao)
+        public void incluirTipoAndamento(string descricao)
         {
-            selecionarTipoManifestante();
+            selecionarTipoAndamento();
 
             driver.FindElement(By.Id("btnIncluir")).Click();
             Thread.Sleep(3000);
@@ -29,19 +29,29 @@ namespace ESOU.Pages
 
             var comboboxTipoManifestacao = driver.FindElement(By.Id("dropManifestacao"));
             var selectElementTipoManifestacao = new OpenQA.Selenium.Support.UI.SelectElement(comboboxTipoManifestacao);
-            selectElementTipoManifestacao.SelectByText("Sim");
+            selectElementTipoManifestacao.SelectByText("Ativo");
 
 
             var comboboxOpniao = driver.FindElement(By.Id("dropOpiniao"));
             var selectElementOpniao = new OpenQA.Selenium.Support.UI.SelectElement(comboboxOpniao);
-            selectElementOpniao.SelectByText("Sim");
+            selectElementOpniao.SelectByText("Ativo");
 
 
             var comboboxStatus = driver.FindElement(By.Id("dropStatus"));
             var selectElementStatus = new OpenQA.Selenium.Support.UI.SelectElement(comboboxStatus);
             selectElementStatus.SelectByText("Ativo");
 
-           
+            var comboboxAbertura = driver.FindElement(By.Id("dropAbertura"));
+            var selectElementAbertura = new OpenQA.Selenium.Support.UI.SelectElement(comboboxAbertura);
+            selectElementAbertura.SelectByText("Ativo");
+
+
+            var comboboxFechamento = driver.FindElement(By.Id("dropFechamento"));
+            var selectElementFechamento = new OpenQA.Selenium.Support.UI.SelectElement(comboboxFechamento);
+            selectElementFechamento.SelectByText("Ativo");
+
+            
+
 
             driver.FindElement(By.Id("btnSalvar")).Click();
             Thread.Sleep(1000);
@@ -52,7 +62,7 @@ namespace ESOU.Pages
 
         public void alterarTipoManifestacao(string titulo)
         {
-            selecionarTipoManifestante();
+            selecionarTipoAndamento();
             //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             Thread.Sleep(3000);
             driver.FindElement(By.XPath("//*[@id='tableTipoManifestacao']/thead/tr/th[1]")).Click();
@@ -71,7 +81,7 @@ namespace ESOU.Pages
 
         public void excluirTipoManifestacao()
         {
-            selecionarTipoManifestante();
+            selecionarTipoAndamento();
            
             Thread.Sleep(2000);
             driver.FindElement(By.XPath("//*[@id='tableTipoManifestacao']/thead/tr/th[1]")).Click();
@@ -87,7 +97,7 @@ namespace ESOU.Pages
 
         public void consultarTipoManifestacao(string titulo)
         {
-            selecionarTipoManifestante();
+            selecionarTipoAndamento();
 
             driver.FindElement(By.Id("inputDescr")).SendKeys(titulo);
             driver.FindElement(By.Id("btnBuscar")).Click();
@@ -98,11 +108,11 @@ namespace ESOU.Pages
 
         }
 
-        public void selecionarTipoManifestante()
+        public void selecionarTipoAndamento()
         {
             driver.FindElement(By.XPath("//*[@id='iniciodomenu']/div/ul/li[4]/a/span[1]")).Click();
             Thread.Sleep(1000);
-            driver.FindElement(By.CssSelector("#iniciodomenu > div > ul > li.open > ul > li:nth-child(8) > a")).Click();
+            driver.FindElement(By.CssSelector("#iniciodomenu > div > ul > li.open > ul > li:nth-child(7) > a")).Click();
 
         }
 

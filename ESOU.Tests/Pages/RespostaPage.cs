@@ -79,12 +79,27 @@ namespace ESOU.Pages
             driver.FindElement(By.Id("inputDescr")).SendKeys(titulo);
             driver.FindElement(By.Id("btnBuscar")).Click();
 
+            Thread.Sleep(1000);
 
+        }
+
+        public void vincularResposta()
+        {
+            selecionarMenuResposta();
+
+            Thread.Sleep(1000);
+            driver.FindElement(By.XPath("//*[@id='tableTipoResposta']/thead/tr/th[1]")).Click();
+            driver.FindElement(By.Id("btnGridEdit")).Click();
             Thread.Sleep(1000);
 
 
 
+            driver.FindElement(By.Id("btnGridVincular")).Click();
+
+            
+
         }
+
 
 
         public void selecionarMenuResposta()

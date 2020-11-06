@@ -8,7 +8,7 @@ using System.Linq;
 namespace ESOU.TestsUI
 
 {
-    class Manifestacao : TestBase
+    class ManifestacaoLote : TestBase
     {
         IWebDriver driver;
 
@@ -26,7 +26,7 @@ namespace ESOU.TestsUI
         
             
             [Test, Order(1)]
-        public void incluirManifestacao()
+        public void incluirManifestacaoLote()
         {
 
             
