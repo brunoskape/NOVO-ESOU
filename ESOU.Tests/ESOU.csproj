@@ -454,6 +454,10 @@
   <ItemGroup>
     <Compile Include="Base\SelectElement.cs" />
     <Compile Include="Base\TestBase.cs" />
+    <Compile Include="Pages\RelatorioLeiDeAcessoPage.cs" />
+    <Compile Include="Pages\RelatorioReclamacoesPage.cs" />
+    <Compile Include="Pages\RelatorioManifestacaoRemetidadePage.cs" />
+    <Compile Include="Pages\RelatorioIncidentePage.cs" />
     <Compile Include="Pages\ManifestacaoLotePage.cs" />
     <Compile Include="Pages\ManifestacaoPage.cs" />
     <Compile Include="Pages\RespostaPage.cs" />
@@ -470,6 +474,10 @@
     <Compile Include="Tests\ManifestacaoLote.cs" />
     <Compile Include="Tests\Manifestacao.cs" />
     <Compile Include="Tests\Pergunta.cs" />
+    <Compile Include="Tests\RelatorioReclamacoes.cs" />
+    <Compile Include="Tests\RelatorioLeiDeAcesso.cs" />
+    <Compile Include="Tests\RelatorioRemetida .cs" />
+    <Compile Include="Tests\RelatorioIncidente.cs" />
     <Compile Include="Tests\Resposta.cs" />
     <Compile Include="Tests\ItemTipoManifestacao.cs" />
     <Compile Include="Tests\TipoAndamento.cs" />

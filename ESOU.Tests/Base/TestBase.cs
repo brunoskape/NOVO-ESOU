@@ -6,7 +6,7 @@ using OpenQA.Selenium.IE;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 using System.IO;
-
+using System.Threading;
 
 namespace ESOU.Base
 {
@@ -88,10 +88,19 @@ namespace ESOU.Base
             driver.FindElement(By.Id("txtLogin")).SendKeys(usuario);
             driver.FindElement(By.Id("txtSenha")).SendKeys(senha);
             driver.FindElement(By.Id("btnEnviar")).Click();
-           
 
 
+            var comboboxSistema = driver.FindElement(By.Id("cmbSistemas"));
+            var selectElementSistema = new OpenQA.Selenium.Support.UI.SelectElement(comboboxSistema);
+            selectElementSistema.SelectByText("SISTEMA ELETRÔNICO DA OUVIDORIA");
 
+            Thread.Sleep(2000);
+
+            var comboboxOrgao = driver.FindElement(By.Id("cmbOrgaos"));
+            var selectElementOrgao = new OpenQA.Selenium.Support.UI.SelectElement(comboboxOrgao);
+            selectElementOrgao.SelectByText("OUVID OUVIDORIA GERAL DO PODER JUDICIARIO");
+
+            
 
 
         }

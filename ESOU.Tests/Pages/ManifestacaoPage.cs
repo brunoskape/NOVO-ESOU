@@ -182,7 +182,7 @@ namespace ESOU.Pages
         {
             driver.FindElement(By.PartialLinkText("Manifestações")).Click();
             Thread.Sleep(500);
-            driver.FindElement(By.PartialLinkText("Consultar")).Click();
+            driver.FindElement(By.PartialLinkText("Incluir")).Click();
 
         }
 
