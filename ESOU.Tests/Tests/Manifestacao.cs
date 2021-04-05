@@ -83,7 +83,7 @@ namespace ESOU.TestsUI
         {
 
             ManifestacaoPage manifestacao = new ManifestacaoPage(driver);
-            manifestacao.consultarManifestacaoPorData("01/10/2020","20/10/2020");
+            manifestacao.consultarManifestacaoPorData("01/01/2020","20/10/2021");
 
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='tableManifest']/tbody/tr[4]/td[1]")).Text;
             Assert.AreEqual("2020.000079", textoValidacao);
