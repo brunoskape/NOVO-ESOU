@@ -34,38 +34,10 @@ namespace ESOU.TestsUI
             ManifestacaoPage manifestacao = new ManifestacaoPage(driver);
             manifestacao.incluirManifestacao();
             
-            
-           // string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
-            //Assert.AreEqual("   Cadastrado com sucesso.", textoValidacao);
-         
+                
         }
 
-        //[Test, Order(2)]
-        //public void alterarManifestacao()
-        //{
-
-        //    CanalDeAcessoPage canalDeAcesso = new CanalDeAcessoPage(driver);
-        //    canalDeAcesso.alterarCanalAcesso("teste selenium alteracao");
-
-        //    string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
-        //    Assert.AreEqual("   Alterado com sucesso.", textoValidacao);
-
-        //}
-
-
-        //[Test, Order(3)]
-        //public void excluirManifestacao ()
-        //{
-
-        //    CanalDeAcessoPage canalDeAcesso = new CanalDeAcessoPage(driver);
-        //    canalDeAcesso.excluirCanalAcesso();
-
-        //    string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
-        //    Assert.AreEqual("   Excluído com sucesso.", textoValidacao);
-
-        //}
-
-
+     
         [Test, Order(4)]
         public void consultarManifestacaoPorNumero()
         {
@@ -83,10 +55,10 @@ namespace ESOU.TestsUI
         {
 
             ManifestacaoPage manifestacao = new ManifestacaoPage(driver);
-            manifestacao.consultarManifestacaoPorData("01/01/2020","20/10/2021");
+            manifestacao.consultarManifestacaoPorData("01/01/2021","20/10/2021");
 
-            string textoValidacao = driver.FindElement(By.XPath("//*[@id='tableManifest']/tbody/tr[4]/td[1]")).Text;
-            Assert.AreEqual("2020.000079", textoValidacao);
+            string textoValidacao = driver.FindElement(By.XPath("//*[@id='tableManifest']/tbody/tr[1]/td[1]")).Text;
+            Assert.AreEqual("2021.000190", textoValidacao);
 
         }
 
