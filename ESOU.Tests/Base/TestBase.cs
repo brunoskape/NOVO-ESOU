@@ -38,7 +38,7 @@ namespace ESOU.Base
             {
                 case WebBrowser.Firefox:
                     driver = new FirefoxDriver();
-                    driver.Navigate().GoToUrl("cc");
+                    driver.Navigate().GoToUrl("https://wwwh3.tjrj.jus.br/hsegweb/faces/login.jsp");
                     driver.Manage().Window.Maximize();
                     driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
 

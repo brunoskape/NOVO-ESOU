@@ -24,20 +24,9 @@ namespace ESOU.Pages
 
             Thread.Sleep(500);
 
-            //var comboboxOrgao = driver.FindElement(By.Id("cmbOrgaos"));
-            //var selectElementOrgao = new OpenQA.Selenium.Support.UI.SelectElement(comboboxOrgao);
-            //selectElementOrgao.SelectByText("DGTEC - FSW EQUIPE DE DESENVOLVIMENTO");
-
-
-
-
             driver.FindElement(By.Id("cmdEnviar")).Click();
 
-           
-
-
-
-            
+      
 
         }
         

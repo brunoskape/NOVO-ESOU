@@ -10,9 +10,11 @@ namespace ESOU.Pages
     class ManifestacaoPage
     {
         private IWebDriver driver;
+
         public ManifestacaoPage(IWebDriver driver)
         {
             this.driver = driver;
+           
 
         }
 
@@ -105,14 +107,6 @@ namespace ESOU.Pages
 
             }
 
-            
-         
-            
-            
-
-
-
-
       
         public void alterarManifestacao(string descricao)
         {
@@ -127,8 +121,6 @@ namespace ESOU.Pages
             driver.FindElement(By.Id("btnAlterar")).Click();
 
             Thread.Sleep(1000);
-
-
 
         }
 
@@ -167,13 +159,18 @@ namespace ESOU.Pages
             selecionarMenuManifestacao();
 
             driver.FindElement(By.Id("inputDtInicio")).SendKeys(dataInicio);
-
             driver.FindElement(By.Id("inputDtFim")).SendKeys(dataFim);
-
-
-
             driver.FindElement(By.Id("btnBuscar")).Click();
             Thread.Sleep(9000);
+
+        }
+
+        public void consultarManifestacaoPeloBotaoAcoes()
+        {
+            Thread.Sleep(2000);
+
+            driver.FindElement(By.CssSelector("#tableManifest > tbody > tr:nth-child(3) > td:nth-child(7) > div > div:nth-child(1) > #btnGridVisualizar")).Click();
+          
 
         }
 

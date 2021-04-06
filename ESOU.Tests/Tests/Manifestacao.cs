@@ -62,6 +62,23 @@ namespace ESOU.TestsUI
 
         }
 
+        [Test, Order(6)]
+        public void consultarManifestacaoAcoes()
+        {
+
+            ManifestacaoPage manifestacao = new ManifestacaoPage(driver);
+            manifestacao.consultarManifestacaoPorData("01/01/2021", "20/10/2021");
+            manifestacao.consultarManifestacaoPeloBotaoAcoes();
+            
+
+
+
+            //string textoValidacao = driver.FindElement(By.XPath("//*[@id='tableManifest']/tbody/tr[1]/td[1]")).Text;
+            //Assert.AreEqual("2021.000190", textoValidacao);
+
+        }
+
+
 
 
 
