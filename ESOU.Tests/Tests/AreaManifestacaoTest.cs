@@ -1,14 +1,18 @@
 ﻿using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using ESOU.Base;
 using ESOU.Pages;
+using System;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System.Threading;
 using System.Linq;
 
 namespace ESOU.TestsUI
 
 {
-    class Acesso : TestBase
+    class AreaManifestacao : TestBase
     {
         IWebDriver driver;
 
@@ -23,26 +27,28 @@ namespace ESOU.TestsUI
             Thread.Sleep(1000);
             driver.SwitchTo().Window(driver.WindowHandles.Last());
         }
-        
-            
-            [Test, Order(1)]
-        public void incluirCanalAcesso()
+
+
+        [Test, Order(1)]
+        public void incluirManifestacao()
         {
 
-            CanalDeAcessoPage canalDeAcesso = new CanalDeAcessoPage(driver);
-            canalDeAcesso.incluirCanalAcesso("teste selenium");
-            
+            AreaManifestacaoPage areaManifestacao = new AreaManifestacaoPage(driver);
+            areaManifestacao.incluirAreaManifestacao("teste selenium areaManif");
+
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
             Assert.AreEqual("   Cadastrado com sucesso.", textoValidacao);
-         
+
         }
 
+
+
         [Test, Order(2)]
-        public void alterarCanalAcesso()
+        public void alterarManifestacao()
         {
 
-            CanalDeAcessoPage canalDeAcesso = new CanalDeAcessoPage(driver);
-            canalDeAcesso.alterarCanalAcesso("teste selenium alteracao");
+            AreaManifestacaoPage areaManifestacao = new AreaManifestacaoPage(driver);
+            areaManifestacao.alterarAreaManifestacao("teste selenium alt");
 
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
             Assert.AreEqual("   Alterado com sucesso.", textoValidacao);
@@ -50,12 +56,13 @@ namespace ESOU.TestsUI
         }
 
 
+
         [Test, Order(3)]
-        public void excluirCanalAcesso()
+        public void excluirManifestacao()
         {
 
-            CanalDeAcessoPage canalDeAcesso = new CanalDeAcessoPage(driver);
-            canalDeAcesso.excluirCanalAcesso();
+            AreaManifestacaoPage areaManifestacao = new AreaManifestacaoPage(driver);
+            areaManifestacao.excluirAreaManifestacao();
 
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
             Assert.AreEqual("   Excluído com sucesso.", textoValidacao);
@@ -70,6 +77,11 @@ namespace ESOU.TestsUI
             driver.Quit();
         }
 
+
+
     }
+
+
+
 
 }
