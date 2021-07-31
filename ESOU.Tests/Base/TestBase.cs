@@ -34,34 +34,39 @@ namespace ESOU.Base
 
         public void Inicializar(WebBrowser browserType)
         {
+            String url = "https://wwwh3.tjrj.jus.br/hsegweb/faces/login.jsp";
             switch (browserType)
             {
                 case WebBrowser.Firefox:
-                    driver = new FirefoxDriver();
-                    driver.Navigate().GoToUrl("cc");
+                    //driver = new FirefoxDriver();
+                    FirefoxOptions options = new FirefoxOptions();
+                    options.AddArguments("headless");
+                    options.AddArguments("disable-gpu");
+                    options.AddArguments("window-size=1920,1080");
+                    driver.Navigate().GoToUrl(url);
                     driver.Manage().Window.Maximize();
                     driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
 
-                    //FirefoxOptions options = new FirefoxOptions();
-                   // options.AddArguments("headless");
+
+
                     break;
                 case WebBrowser.Chrome:
                     //driver = new ChromeDriver();
                     ChromeOptions chromeOptions = new ChromeOptions();
-                    //chromeOptions.AddArguments("headless");
+                    // chromeOptions.AddArguments("headless");
                     //chromeOptions.AddArguments("disable-gpu");
+                    // chromeOptions.AddArguments("window-size=1920,1080");
                     driver = new ChromeDriver(chromeOptions);
-                    driver.Navigate().GoToUrl("https://wwwh3.tjrj.jus.br/hsegweb/faces/login.jsp");
+                    driver.Navigate().GoToUrl(url);
                     driver.Manage().Window.Maximize();
 
                     break;
                 case WebBrowser.IE:
 
                     driver = new InternetExplorerDriver();
-                    driver.Navigate().GoToUrl("https://wwwh3.tjrj.jus.br/hsegweb/faces/login.jsp");
+                    driver.Navigate().GoToUrl(url);
                     driver.Manage().Window.Maximize();
-                    //FirefoxOptions options = new FirefoxOptions();
-                    //options.AddArguments("--headless");
+
                     break;
                 default:
                     break;
@@ -81,7 +86,7 @@ namespace ESOU.Base
             Chrome
 
         }
-  
+
 
         public void Logar(string usuario, string senha)
         {
@@ -94,19 +99,16 @@ namespace ESOU.Base
             var selectElementSistema = new OpenQA.Selenium.Support.UI.SelectElement(comboboxSistema);
             selectElementSistema.SelectByText("SISTEMA ELETRÔNICO DA OUVIDORIA");
 
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
 
             var comboboxOrgao = driver.FindElement(By.Id("cmbOrgaos"));
             var selectElementOrgao = new OpenQA.Selenium.Support.UI.SelectElement(comboboxOrgao);
             selectElementOrgao.SelectByText("OUVID OUVIDORIA GERAL DO PODER JUDICIARIO");
 
-            
-
-
         }
-                    
-          
-        
+
+
+
 
         public void Screenshot(IWebDriver driver, string screenshotsPasta)
         {
@@ -114,15 +116,10 @@ namespace ESOU.Base
             Screenshot foto = camera.GetScreenshot();
             foto.SaveAsFile(screenshotsPasta, ScreenshotImageFormat.Png);
         }
-        //public void capturaImagem()
-        //{
-        //    Screenshot(driver, screenshotsPasta + TestContext.CurrentContext.Test.Name + ".png");
-        //    Thread.Sleep(500);
-        //}
 
-       
 
     }
+
 
 }
 
