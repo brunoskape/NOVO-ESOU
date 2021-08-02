@@ -26,18 +26,11 @@ namespace ESOU.Pages
 
             var comboboxOrgao = driver.FindElement(By.Id("cmbOrgaos"));
             var selectElementOrgao = new OpenQA.Selenium.Support.UI.SelectElement(comboboxOrgao);
-            selectElementOrgao.SelectByText("DGTEC - FSW EQUIPE DE DESENVOLVIMENTO");
-
-
+            selectElementOrgao.SelectByText("OUVID OUVIDORIA GERAL DO PODER JUDICIARIO");
 
 
             driver.FindElement(By.Id("cmdEnviar")).Click();
-
-           
-
-
-
-            
+   
 
         }
         

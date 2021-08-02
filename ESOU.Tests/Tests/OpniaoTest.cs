@@ -40,34 +40,6 @@ namespace ESOU.TestsUI
 
 
 
-        [Test, Order(2)]
-        public void alterarManifestacao()
-        {
-
-            AreaManifestacaoPage areaManifestacao = new AreaManifestacaoPage(driver);
-            areaManifestacao.alterarAreaManifestacao("teste selenium alt");
-
-            string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
-            Assert.AreEqual("   Alterado com sucesso.", textoValidacao);
-
-        }
-
-
-
-        [Test, Order(3)]
-        public void excluirManifestacao()
-        {
-
-            AreaManifestacaoPage areaManifestacao = new AreaManifestacaoPage(driver);
-            areaManifestacao.excluirAreaManifestacao();
-
-            string textoValidacao = driver.FindElement(By.XPath("//*[@id='divAlerta']/div")).Text;
-            Assert.AreEqual("   Excluído com sucesso.", textoValidacao);
-
-        }
-
-
-
         [TearDown]
         public void tearDown()
         {

@@ -460,6 +460,8 @@
   <ItemGroup>
     <Compile Include="Base\SelectElement.cs" />
     <Compile Include="Base\TestBase.cs" />
+    <Compile Include="Pages\AndamentoPage.cs" />
+    <Compile Include="Pages\AnalisarManifestacaoPage.cs" />
     <Compile Include="Pages\RelatorioManifestacoesPendentesPage.cs" />
     <Compile Include="Pages\MensalPage.cs" />
     <Compile Include="Pages\SatisfacaoPage.cs" />
@@ -481,23 +483,19 @@
     <Compile Include="Pages\FormaContatoPage.cs" />
     <Compile Include="Pages\CanalDeAcessoPage.cs" />
     <Compile Include="Pages\HomePage.cs" />
-    <Compile Include="Tests\RelatorioManifestacoesPendentes.cs" />
-    <Compile Include="Tests\MensalTest.cs" />
+    <Compile Include="Tests\AnalisarManifestacaoTest.cs" />
+    <Compile Include="Tests\AndamentoTest.cs" />
     <Compile Include="Tests\SatisfacaoTest.cs" />
     <Compile Include="Tests\OpniaoTest.cs" />
     <Compile Include="Tests\ManifestacaoLote.cs" />
     <Compile Include="Tests\ManifestacaoTest.cs" />
-    <Compile Include="Tests\Pergunta.cs" />
-    <Compile Include="Tests\RelatorioReclamacoes.cs" />
-    <Compile Include="Tests\RelatorioLeiDeAcesso.cs" />
-    <Compile Include="Tests\RelatorioRemetida .cs" />
-    <Compile Include="Tests\RelatorioIncidente.cs" />
+    <Compile Include="Tests\PerguntaTest.cs" />
     <Compile Include="Tests\Resposta.cs" />
     <Compile Include="Tests\ItemTipoManifestacao.cs" />
     <Compile Include="Tests\TipoAndamento.cs" />
     <Compile Include="Tests\TipoManifestante.cs" />
     <Compile Include="Tests\TipoManifestacao.cs" />
-    <Compile Include="Tests\TextoPadrao.cs" />
+    <Compile Include="Tests\TextoPadraoTest.cs" />
     <Compile Include="Tests\AreaManifestacaoTest.cs" />
     <Compile Include="Tests\FormaContato.cs" />
     <Compile Include="Tests\CanalAcessoTest.cs" />

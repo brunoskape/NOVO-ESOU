@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using ESOU.Base;
+using OpenQA.Selenium.Support.PageObjects;
 using System;
 using System.Threading;
 using System.Linq;
@@ -13,8 +14,26 @@ namespace ESOU.Pages
         public TextoPadraoPage(IWebDriver driver)
         {
             this.driver = driver;
+            PageFactory.InitElements(driver, this);
 
         }
+
+        //page factory
+        [FindsBy(How = How.Id, Using = "btnIncluir")]
+        private IWebElement btnIncluir;
+
+        [FindsBy(How = How.Id, Using = "inputTitulo")]
+        private IWebElement inputTitulo;
+
+        [FindsBy(How = How.Id, Using = "inputSigla")]
+        private IWebElement inputSigla;
+
+        [FindsBy(How = How.Id, Using = "inputDescr")]
+        private IWebElement inputDescr;
+
+        [FindsBy(How = How.Id, Using = "btnAlterar")]
+        private IWebElement btnAlterar;
+
 
 
         public void incluirTextoPadrao(string titulo, string sigla, string descricao)
@@ -23,11 +42,11 @@ namespace ESOU.Pages
 
             selecionarFormaDeContato();
 
-            driver.FindElement(By.Id("btnIncluir")).Click();
-
-            driver.FindElement(By.Id("inputTitulo")).SendKeys(titulo);
-            driver.FindElement(By.Id("inputSigla")).SendKeys(sigla);
-            driver.FindElement(By.Id("inputDescr")).SendKeys(descricao);
+            btnIncluir.Click();
+            inputTitulo.SendKeys(titulo);
+            inputSigla.SendKeys(sigla);
+            inputDescr.SendKeys(descricao);
+                       
 
             Thread.Sleep(2000);
             var comboboxTipoManifestacao = driver.FindElement(By.Id("dropManif"));
@@ -44,8 +63,8 @@ namespace ESOU.Pages
             var selectElement = new OpenQA.Selenium.Support.UI.SelectElement(combobox);
             selectElement.SelectByText("Ativo");
 
-         
-           
+
+            btnAlterar.Click();
             driver.FindElement(By.Id("btnAlterar")).Click();
             Thread.Sleep(1000);
 
