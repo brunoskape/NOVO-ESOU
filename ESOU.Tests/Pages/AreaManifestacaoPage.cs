@@ -50,14 +50,11 @@ namespace ESOU.Pages
 
         public void incluirAreaManifestacao(string descricao)
         {
-            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-
+            
             selecionarMenuAreaManifestacao();
-
 
             btnIncluir.Click();
             inputDescr.SendKeys(descricao);
-
 
             var combobox = driver.FindElement(By.Id("dropStatus"));
             var selectElement = new OpenQA.Selenium.Support.UI.SelectElement(combobox);
@@ -65,7 +62,6 @@ namespace ESOU.Pages
 
             btnSalvar.Click();
             Thread.Sleep(1000);
-
 
 
         }
@@ -103,7 +99,8 @@ namespace ESOU.Pages
             pesquisarAreaManifestacao("teste selenium alt");
             tabelaTipoAreaManif.Click();
             gridDelete.Click();
-            Thread.Sleep(1000);
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
+            wait.Until(ExpectedConditions.ElementIsVisible(By.Id("btnBuscar")));
             btnBuscar.Click();
             Thread.Sleep(1000);
 
