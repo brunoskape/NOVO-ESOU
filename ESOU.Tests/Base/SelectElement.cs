@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using OpenQA.Selenium;
 
 namespace ESOU.Base
@@ -12,6 +13,6 @@ namespace ESOU.Base
             this.combobox = combobox;
         }
 
-      
+        public IList Options { get; internal set; }
     }
 }

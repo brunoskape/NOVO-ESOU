@@ -83,6 +83,7 @@ namespace ESOU.TestsUI
         [TearDown]
         public void tearDown()
         {
+            driver.Close();
             driver.Quit();
         }
 

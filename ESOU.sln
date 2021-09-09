@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESOU", "ESOU.Tests\ESOU.csproj", "{20409885-4BF3-43C9-B7D2-00408FC1821F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LedWebSeleniumTest", "LedWebSeleniumTest\LedWebSeleniumTest.csproj", "{F9C2DB71-732C-44A3-A266-7DFEF149FBD5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{20409885-4BF3-43C9-B7D2-00408FC1821F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20409885-4BF3-43C9-B7D2-00408FC1821F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20409885-4BF3-43C9-B7D2-00408FC1821F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9C2DB71-732C-44A3-A266-7DFEF149FBD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9C2DB71-732C-44A3-A266-7DFEF149FBD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9C2DB71-732C-44A3-A266-7DFEF149FBD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9C2DB71-732C-44A3-A266-7DFEF149FBD5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
