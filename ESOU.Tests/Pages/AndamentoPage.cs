@@ -48,10 +48,13 @@ namespace ESOU.Pages
             btnBuscar.Click();
             btnGridAndamento.Click();
 
+            var comboboxAndamento = driver.FindElement(By.Id("dropTipoAndamento"));
+            var selectElementAndamento = new OpenQA.Selenium.Support.UI.SelectElement(comboboxAndamento);
+            selectElementAndamento.SelectByText("Formulario Eletronico");
 
-             texto.SendKeys("Texto andamento");
-                    //dropTipoAndamento
 
+
+            btnGridAndamento.Click();
         }
 
              

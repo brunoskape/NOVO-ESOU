@@ -89,6 +89,7 @@ namespace ESOU.TestsUI
         {
 
             ManifestacaoPage manifestacao = new ManifestacaoPage(driver);
+            manifestacao.selecionarMenuConsultarManifestacao();
             manifestacao.consultarManifestacaoPorNumero("2021.000321");
 
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='tableManifest']/tbody/tr/td[1]")).Text;
@@ -101,6 +102,7 @@ namespace ESOU.TestsUI
         {
 
             ManifestacaoPage manifestacao = new ManifestacaoPage(driver);
+            manifestacao.selecionarMenuConsultarManifestacao();
             manifestacao.consultarManifestacaoPorData("01/07/2021", "30/07/2021");
 
             string textoValidacao = driver.FindElement(By.XPath("//*[@id='tableManifest']/tbody/tr[1]/td[5]")).Text;

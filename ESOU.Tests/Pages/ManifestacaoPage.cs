@@ -222,7 +222,7 @@ namespace ESOU.Pages
 
         public void consultarManifestacaoPorNumero(string numeroManifestacao)
         {
-            selecionarMenuConsultarManifestacao();
+           // selecionarMenuConsultarManifestacao();
 
             numeroManif.SendKeys(numeroManifestacao);
             btnBuscar.Click();
@@ -236,7 +236,7 @@ namespace ESOU.Pages
 
         public void consultarManifestacaoPorData(string dtInicio, string dtFim)
         {
-            selecionarMenuConsultarManifestacao();
+            //selecionarMenuConsultarManifestacao();
 
             dataInicio.SendKeys(dtInicio);
             dataFim.SendKeys(dtFim);

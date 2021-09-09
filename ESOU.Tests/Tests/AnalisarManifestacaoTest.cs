@@ -1,15 +1,18 @@
 ﻿using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using ESOU.Base;
 using ESOU.Pages;
+using System;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System.Threading;
 using System.Linq;
-using System;
 
 namespace ESOU.TestsUI
 
 {
-    class AndamentoTest: TestBase
+    class AnalisarManifestacaoTest : TestBase
     {
         IWebDriver driver;
 
@@ -24,29 +27,25 @@ namespace ESOU.TestsUI
             Thread.Sleep(1000);
             driver.SwitchTo().Window(driver.WindowHandles.Last());
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
-
         }
 
 
         [Test, Order(1)]
-        public void incluirAndamento()
+        public void incluirAnaliseManifestacao()
         {
-            AndamentoPage andamento = new AndamentoPage(driver);
 
-            andamento.selecionarMenuConsultarManifestacao();
-
+            AnalisarManifestacaoPage analisarManifestacao = new AnalisarManifestacaoPage(driver);
             ManifestacaoPage manifestacaoPage = new ManifestacaoPage(driver);
+            analisarManifestacao.selecionarMenuAnalisarManifestacao();
             manifestacaoPage.consultarManifestacaoPorData("01/07/2021", "30/07/2021");
-
-            andamento.incluirAndamento();
+            analisarManifestacao.incluirAnaliseManifestacao();
 
             String textoValidacao = driver.FindElement(By.XPath("//*[@class='well']")).Text;
-            Assert.That(textoValidacao.Contains("Sua manifestação foi enviada com sucesso"));
+           
+            Assert.That(textoValidacao.Contains("foi atualizada com sucesso."));
+
         }
 
- 
-
-    
 
 
 
@@ -57,6 +56,11 @@ namespace ESOU.TestsUI
             driver.Quit();
         }
 
+
+
     }
+
+
+
 
 }

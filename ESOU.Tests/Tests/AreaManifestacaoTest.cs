@@ -26,6 +26,7 @@ namespace ESOU.TestsUI
             homePage.selecionarSistema();
             Thread.Sleep(1000);
             driver.SwitchTo().Window(driver.WindowHandles.Last());
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
         }
 
 
